@@ -88,35 +88,41 @@ const showPhoneDetails = (phone) => {
   const showDetailsOfPhones = document.getElementById("show-details-of-phones");
   showDetailsOfPhones.innerHTML = `
     <div class="flex justify-center bg-[#0d6efd0d] mb-10 rounded-lg">
-      <img src="${phone.image}" class="py-[51px] " alt="" />
+      <img src="${phone?.image || "not available"}" class="py-[51px] " alt="" />
     </div>
-    <h3 class="text-3xl font-bold mb-6">${phone.name}</h3>
+    <h3 class="text-3xl font-bold mb-6">${phone?.name || "not available"}</h3>
     <p class="text-[#706F6F] mb-5">
       It is a long established fact that a reader will be distracted by the
       readable content of a page when looking at its layout.
     </p>
     <!-- single feature -->
     <p class="text-xl mb-4">
-      <span class="font-semibold">Storage:</span> ${phone.mainFeatures.storage}
-    </p>
-    <!-- single feature -->
-    <p class="text-xl mb-4">
-      <span class="font-semibold">Display Size:</span> ${
-        phone.mainFeatures.displaySize
+      <span class="font-semibold">Storage:</span> ${
+        phone?.mainFeatures?.storage || "not available"
       }
     </p>
     <!-- single feature -->
     <p class="text-xl mb-4">
-      <span class="font-semibold">Chipset:</span> ${phone.mainFeatures.chipSet}
+      <span class="font-semibold">Display Size:</span> ${
+        phone?.mainFeatures?.displaySize || "not available"
+      }
     </p>
     <!-- single feature -->
     <p class="text-xl mb-4">
-      <span class="font-semibold">Memory:</span> ${phone.mainFeatures.memory}
+      <span class="font-semibold">Chipset:</span> ${
+        phone?.mainFeatures?.chipSet || "not available"
+      }
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Memory:</span> ${
+        phone?.mainFeatures?.memory || "not available"
+      }
     </p>
     <!-- single feature -->
     <p class="text-xl mb-4">
       <span class="font-semibold">Slug:</span> ${
-        phone.slug ? phone.slug : "not available"
+        phone?.slug ? phone?.slug : "not available"
       }
     </p>
     <!-- single feature -->
@@ -128,13 +134,13 @@ const showPhoneDetails = (phone) => {
     <!-- single feature -->
     <p class="text-xl mb-4">
       <span class="font-semibold">Brand:</span> ${
-        phone.brand ? phone.brand : "not available"
+        phone?.brand ? phone?.brand : "not available"
       }
     </p>
     <!-- single feature -->
     <p class="text-xl mb-4">
       <span class="font-semibold">GPS:</span> ${
-        phone.others?.GPS ? phone.others?.GPS : "not available"
+        phone?.others?.GPS ? phone?.others?.GPS : "not available"
       }
     </p>
   `;
