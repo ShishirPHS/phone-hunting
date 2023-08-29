@@ -40,14 +40,34 @@
         <div id="loading-spinner-container" class="text-center my-12 hidden">
           <span class="loading loading-spinner loading-lg"></span>
         </div>
+        <!-- phones container div -->
         <div
           id="phone-container"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         ></div>
         <!-- show all button div -->
         <div id="show-all-btn-container" class="hidden mt-6 text-center">
-          <button onclick="handleShowAll()" id="show-all-btn" class="btn btn-accent">Show All</button>
+          <button
+            onclick="handleShowAll()"
+            id="show-all-btn"
+            class="btn btn-accent"
+          >
+            Show All
+          </button>
         </div>
+        <!-- modal start -->
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal">
+          <form method="dialog" class="modal-box">
+            <h3 class="font-bold text-lg">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </div>
+          </form>
+        </dialog>
+        <!-- modal end -->
       </section>
     </main>
     <!-- script file link below -->

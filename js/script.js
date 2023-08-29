@@ -1,4 +1,4 @@
-const loadPhone = async (searchedPhone, isShowAll) => {
+const loadPhone = async (searchedPhone = "13", isShowAll) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchedPhone}`
   );
@@ -30,7 +30,8 @@ const displayPhones = (phones, isShowAll) => {
   phones.forEach((phone) => {
     const phoneCard = document.createElement("div");
     phoneCard.classList = `card bg-base-100 shadow-xl`;
-    phoneCard.innerHTML = `<figure class="pt-12">
+    phoneCard.innerHTML = `
+    <figure class="pt-12">
         <img
         src="${phone.image}"
         alt="Shoes"
@@ -39,8 +40,8 @@ const displayPhones = (phones, isShowAll) => {
     <div class="card-body">
         <h2 class="card-title">${phone.phone_name}</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="card-actions justify-end">
-        <button class="btn btn-primary">Buy Now</button>
+        <div class="card-actions justify-center mt-4">
+        <button onclick="handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
         </div>
     </div>`;
     phonesContainer.appendChild(phoneCard);
@@ -66,7 +67,24 @@ const toggleLoadingSpinner = (isLoading) => {
   }
 };
 
-// handle sow all
+// handle show all button
 const handleShowAll = () => {
   handleSearch(true);
 };
+
+// handle show details button
+const handleShowDetails = async (id) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await res.json();
+  const phone = data.data;
+  showPhoneDetails(phone);
+};
+
+// handle show details button
+const showPhoneDetails = () => {
+  show_details_modal.showModal();
+};
+
+loadPhone();
