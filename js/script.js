@@ -83,7 +83,62 @@ const handleShowDetails = async (id) => {
 };
 
 // handle show details button
-const showPhoneDetails = () => {
+const showPhoneDetails = (phone) => {
+  console.log(phone);
+  const showDetailsOfPhones = document.getElementById("show-details-of-phones");
+  showDetailsOfPhones.innerHTML = `
+    <div class="flex justify-center bg-[#0d6efd0d] mb-10 rounded-lg">
+      <img src="${phone.image}" class="py-[51px] " alt="" />
+    </div>
+    <h3 class="text-3xl font-bold mb-6">${phone.name}</h3>
+    <p class="text-[#706F6F] mb-5">
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout.
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Storage:</span> ${phone.mainFeatures.storage}
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Display Size:</span> ${
+        phone.mainFeatures.displaySize
+      }
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Chipset:</span> ${phone.mainFeatures.chipSet}
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Memory:</span> ${phone.mainFeatures.memory}
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Slug:</span> ${
+        phone.slug ? phone.slug : "not available"
+      }
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Release date:</span> ${
+        phone?.releaseDate ? phone?.releaseDate : "not available"
+      }
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">Brand:</span> ${
+        phone.brand ? phone.brand : "not available"
+      }
+    </p>
+    <!-- single feature -->
+    <p class="text-xl mb-4">
+      <span class="font-semibold">GPS:</span> ${
+        phone.others?.GPS ? phone.others?.GPS : "not available"
+      }
+    </p>
+  `;
+
   show_details_modal.showModal();
 };
 
