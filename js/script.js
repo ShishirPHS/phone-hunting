@@ -70,5 +70,3 @@ const toggleLoadingSpinner = (isLoading) => {
 const handleShowAll = () => {
   handleSearch(true);
 };
-
-// loadPhone();
